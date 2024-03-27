@@ -1,0 +1,15 @@
+package ynu.sxp.demo.common.exception;
+
+public enum ExceptionType {
+    VALIDATION_ERROR,
+    Login_ERROR,
+    BUSINESS_ERROR,
+    PERSISTENCE_ERROR,
+    DATA_ACCESS_ERROR,
+    ASSERT_ERROR,
+    ACCESS_DENIED_ERROR,
+    NO_RESOURCE_FOUND_ERROR,
+    HTTP_MESSAGE_ERROR,
+    AUTHENTICATION_ERROR,
+    INTERNAL_ERROR
+}
