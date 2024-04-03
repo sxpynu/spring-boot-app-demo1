@@ -4,11 +4,13 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 import ynu.sxp.demo.common.util.TrimDeJson;
 
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "新增用户所需的请求体对象")

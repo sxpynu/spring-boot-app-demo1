@@ -1,8 +1,10 @@
 package ynu.sxp.demo.auth.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
 
 // 登录成功后返回的令牌对象
+@Data
 @Schema(description = "登录成功后返回的令牌对象")
 public class TokenVO {
     // access token

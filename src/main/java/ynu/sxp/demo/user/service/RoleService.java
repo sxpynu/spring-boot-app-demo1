@@ -32,6 +32,7 @@ public class RoleService {
     @Transactional
     public RoleEntity addRole(NewRoleRO ro) {
         var roleEntity = modelMapper.map(ro, RoleEntity.class);
+
         return roleRepository.save(roleEntity);
     }
 
