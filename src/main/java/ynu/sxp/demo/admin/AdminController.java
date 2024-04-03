@@ -48,9 +48,9 @@ public class AdminController extends BaseController {
     @Operation(summary = "更新用户",description = "更新用户基本信息。")
     @PutMapping("user")
     public UserVO updateUser(@Valid @RequestBody UpdateUserRO ro) {
-        UserEntity userEntity = userService.getUserById(ro.getId()).orElseThrow(()->new RuntimeException("用户不存在"));
-        userEntity.setCode(ro.getCode());
-        userEntity.setName(ro.getName());
+        UserEntity userEntity = userService.getUserById(ro.id).orElseThrow(()->new RuntimeException("用户不存在"));
+        userEntity.setCode(ro.code);
+        userEntity.setName(ro.name);
         var updatedUser = this.userService.updateUser(userEntity);
         return modelMapper.map(updatedUser, UserVO.class);
     }
@@ -97,7 +97,7 @@ public class AdminController extends BaseController {
     @Operation(summary = "为用户添加角色",description = "为用户添加角色。")
     @PostMapping("user/role")
     public boolean addRoleToUser(@Valid @RequestBody AddRoleToUserRO ro) {
-        this.userService.addRoleToUser(ro.getUserId(), ro.getRoleId());
+        this.userService.addRoleToUser(ro.userId, ro.roleId);
         return true;
     }
 

@@ -37,10 +37,10 @@ public class UserService {
 
     @Transactional
     public UserEntity addUser(NewUserRO ro){
-        Assert.isTrue(userRepository.findByCode(ro.getCode()).isEmpty(), "用户代码重复！");
+        Assert.isTrue(userRepository.findByCode(ro.code).isEmpty(), "用户代码重复！");
 
         UserEntity user = modelMapper.map(ro, UserEntity.class);
-        user.setPassword(passwordEncoder.encode(ro.getPassword()));
+        user.setPassword(passwordEncoder.encode(ro.password));
         user.getRoles().add(roleService.getUserRole()); // 默认角色为普通用户
 
         return userRepository.save(user);

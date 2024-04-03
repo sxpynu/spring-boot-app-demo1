@@ -49,7 +49,7 @@ class UserExistFilter implements ILoginFilter{
     @Override
     @SneakyThrows
     public void doFilter(LoginContext context) {
-        UserEntity userEntity = userService.getUserByCode(context.getLoginRO().getUsername()).orElseThrow(() -> new LoginException("用户不存在！"));
+        UserEntity userEntity = userService.getUserByCode(context.getLoginRO().username).orElseThrow(() -> new LoginException("用户不存在！"));
         context.setUser(userEntity);
     }
 }
@@ -117,7 +117,7 @@ class PasswordValidateFilter implements ILoginFilter{
     @Override
     @SneakyThrows
     public void doFilter(LoginContext context) {
-        if (!userService.validateUserPassword(context.getUser(), context.getLoginRO().getPassword())){
+        if (!userService.validateUserPassword(context.getUser(), context.getLoginRO().password)){
             throw new LoginException("密码错误！");
         }
     }

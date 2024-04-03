@@ -38,8 +38,8 @@ public class UserController extends BaseController {
     @Operation(summary = "修改当前用户密码", description = "修改当前用户密码")
     public boolean changePassword(@Valid @RequestBody ChangePasswordRO ro) {
         var user = getCurrentUser();
-        Assert.isTrue(userService.validateUserPassword(user, ro.getOldPassword()), "密码错误!");
-        userService.changePassword(user, ro.getNewPassword());
+        Assert.isTrue(userService.validateUserPassword(user, ro.oldPassword), "密码错误!");
+        userService.changePassword(user, ro.newPassword);
         return true;
     }
 

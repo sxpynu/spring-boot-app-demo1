@@ -37,7 +37,7 @@ public class RoleService {
 
     @Transactional
     public RoleEntity updateRole(UpdateRoleRO ro) {
-        var roleEntity = getRoleById(ro.getId()).orElseThrow(() -> new RuntimeException("角色不存在"));
+        var roleEntity = getRoleById(ro.id).orElseThrow(() -> new RuntimeException("角色不存在"));
         modelMapper.map(ro, roleEntity);
         return roleRepository.save(roleEntity);
     }

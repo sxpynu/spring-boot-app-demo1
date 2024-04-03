@@ -43,9 +43,9 @@ public class TokenService {
 
         System.out.printf("role: %s\n", user.getRoles());
         TokenVO tokenVO = new TokenVO();
-        tokenVO.setAccess_token(this.jwkService.encodeJwt(claims));
-        tokenVO.setRefresh_token(refreshTokenService.assignRefreshTokenId(user).toString());
-        tokenVO.setExpires_in(expireAt.toEpochMilli());
+        tokenVO.access_token = this.jwkService.encodeJwt(claims);
+        tokenVO.refresh_token = refreshTokenService.assignRefreshTokenId(user).toString();
+        tokenVO.expires_in = expireAt.toEpochMilli();
 
         return tokenVO;
     }
