@@ -3,6 +3,7 @@ package ynu.sxp.demo.auth.vo;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
+import ynu.sxp.demo.captcha.vo.CaptchaRO;
 import ynu.sxp.demo.common.util.TrimDeJson;
 
 
@@ -15,5 +16,7 @@ public class LoginRO {
     @Schema(description = "登录密码", example = "123456")
     @NotEmpty
     public String password;
+    @Schema(description = "验证码")
+    public CaptchaRO captcha;
 }
 

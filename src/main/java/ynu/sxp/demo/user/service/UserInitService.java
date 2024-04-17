@@ -29,6 +29,10 @@ public class UserInitService {
         if (allRoles.stream().noneMatch(role -> "user".equals(role.getCode()))) {
             roleService.addRole(new NewRoleRO("user", "普通用户"));
         }
+        // 添加内置教师角色
+        if (allRoles.stream().noneMatch(role -> "teacher".equals(role.getCode()))) {
+            roleService.addRole(new NewRoleRO("teacher", "教师"));
+        }
     }
 
     public void initBuildinUser(){

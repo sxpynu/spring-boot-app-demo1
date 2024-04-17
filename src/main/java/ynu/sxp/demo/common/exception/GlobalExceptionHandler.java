@@ -37,11 +37,18 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(new ExceptionVO(ExceptionType.VALIDATION_ERROR, errorMessage.toString()), HttpStatus.BAD_REQUEST);
     }
 
+    /** 处理验证码异常 */
+    @ExceptionHandler(LoginCaptchaException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<ExceptionVO> handleAuthCaptchaException(Exception e) {
+        return new ResponseEntity<>(new ExceptionVO(ExceptionType.LOGIN_CAPTCHA_ERROR, e.getMessage()), HttpStatus.BAD_REQUEST);
+    }
+
     /** 处理登录异常 */
     @ExceptionHandler(LoginException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<ExceptionVO> handleLoginException(Exception e) {
-        return new ResponseEntity<>(new ExceptionVO(ExceptionType.Login_ERROR, e.getMessage()), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(new ExceptionVO(ExceptionType.LOGIN_ERROR, e.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
     /** 处理业务异常 */

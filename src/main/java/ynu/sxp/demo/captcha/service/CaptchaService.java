@@ -44,7 +44,8 @@ public class CaptchaService {
         CaptchaData captchaData = captchaMap.get(ro.id);
         if (captchaData != null) {
             captchaMap.remove(ro.id);
-            return captchaData.captchaText.equals(ro.captcha);
+            //忽略大小写
+            return captchaData.captchaText.equalsIgnoreCase(ro.value);
         }
         return false;
     }

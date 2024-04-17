@@ -11,5 +11,5 @@ public class CaptchaRO {
     public UUID id;
     @NotEmpty
     @Schema(description = "验证码")
-    public String captcha;
+    public String value;
 }

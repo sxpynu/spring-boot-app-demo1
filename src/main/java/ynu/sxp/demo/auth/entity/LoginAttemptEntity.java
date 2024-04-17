@@ -29,10 +29,6 @@ public class LoginAttemptEntity extends BaseEntity {
     @Column(nullable = false)
     private LocalDateTime lastAttemptTime;
 
-    // 是否需要验证码
-    @Column(nullable = false)
-    private boolean isCaptchaRequired;
-
     // 增加登录失败次数
     public void increaseAttemptCount(){
         this.attemptCount++;

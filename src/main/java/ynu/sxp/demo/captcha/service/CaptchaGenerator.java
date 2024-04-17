@@ -11,7 +11,7 @@ public class CaptchaGenerator {
 
     // 验证码字符集, 去掉了一些容易混淆的字符, 如 0, O, 1, I
     private static final String CAPTCHA_CHARACTERS = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-    private static final Color[] COLORS = {Color.BLACK, Color.BLUE, Color.RED, Color.GREEN, Color.ORANGE, Color.MAGENTA, Color.GRAY};
+    private static final Color[] COLORS = {Color.BLACK, Color.BLUE, Color.RED, Color.GREEN, Color.MAGENTA, Color.GRAY};
     public static String generateText(int length) {
         Random random = new Random();
         StringBuilder captcha = new StringBuilder();

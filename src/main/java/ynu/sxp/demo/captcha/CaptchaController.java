@@ -37,7 +37,7 @@ public class CaptchaController {
     public CaptchaVO getCaptcha() throws IOException {
         CaptchaDto captcha = captchaService.createCaptcha();
         String imgBase64 = Base64.getEncoder().encodeToString(captcha.image.toByteArray());
-        return new CaptchaVO(captcha.id, imgBase64);
+        return new CaptchaVO(captcha.id, "data:image/jpeg;base64," + imgBase64);
     }
 
     @Operation(summary = "验证验证码", description = "验证用户输入的验证码是否正确")

@@ -2,7 +2,8 @@ package ynu.sxp.demo.common.exception;
 
 public enum ExceptionType {
     VALIDATION_ERROR,
-    Login_ERROR,
+    LOGIN_ERROR,
+    LOGIN_CAPTCHA_ERROR,
     BUSINESS_ERROR,
     PERSISTENCE_ERROR,
     DATA_ACCESS_ERROR,
